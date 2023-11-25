@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="icon" type="image/png" sizes="32x32" href="./starter-code/assets/images/logo.svg">
+
+	<link rel="stylesheet" href="./starter-code/style.css">
+	<script src="./starter-code/script.js" defer></script>
+
+	<title>Frontend Mentor | Dictionary web app</title>
+</head>
+
+<body>
+	<nav>
+		<ul>
+			<li class="logo"><object data="./starter-code/assets/images/logo.svg"
+					style="width: 34px;height: 38px;"></object></li>
+			<li class="font-select" tabindex="0">
+				<div class="selected-font" data-selected-option="0">Sans Serif</div>
+				<ul class="select-menu" style="display: none;">
+					<li class="select-option" data-font="'Inter'" style="font-family: 'Inter';">Sans Serif</li>
+					<li class="select-option" data-font="'Lora'" style="font-family: 'Lora';">Serif</li>
+					<li class="select-option" data-font="'Insolata'" style="font-family: 'Insolata';">Mono</li>
+				</ul>
+			</li>
+			<li class="divider"></li>
+			<li class="theme">
+				<div class="toggle">
+					<input type="checkbox" name="isNight" id="isNight">
+					<div class="slider"></div>
+				</div>
+				<label for="isNight"><object data="./starter-code/assets/images/icon-moon.svg"
+						style="width: 22px;aspect-ratio: 1;"></object></label>
+			</li>
+		</ul>
+
+	</nav>
+
+	<form method="GET" class="input-search"><input type="text" minlength="1" name="search_word" id="search"
+			placeholder="Search for any word..." autocomplete="off"><button type="submit"><object
+				data="./starter-code/assets/images/icon-search.svg"
+				style="width: 18px;aspect-ratio: 1;pointer-events: none;"></object></button></form>
+
+	<main></main>
+
+	<template id="dict">
+		<header>
+			<h1 class="title">~</h1>
+			<button class="audio-spelling" onclick="audioPlayBtn(this)"><object
+					data="./starter-code/assets/images/icon-play.svg"
+					style="width: var(--size-audio-btn, 78px);aspect-ratio: 1;pointer-events: none;"></object></button>
+			<h2>~</h2>
+		</header>
+		<div class="meanings">
+		</div>
+		<div class="souce-link">
+			<a href="~" target="_blank"></a><object data="./starter-code/assets/images/icon-new-window.svg"
+				style="width: 14px; aspect-ratio: 1;"></object>
+		</div>
+	</template>
+
+	<template id="error">
+		<div class="error-404">
+			<h1>😕</h1>
+			<br>
+			<h2>No Definitions Found</h2>
+			<p>Sorry pal, we couldn't find definitions for the word you were looking for. You can try the search again
+				at later time or head to the web instead.</p>
+		</div>
+	</template>
+
+
+</body>
+
+</html>
