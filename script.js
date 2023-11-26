@@ -1,5 +1,6 @@
 // Get the root element of the document
 const rootElement = document.documentElement;
+const main = document.querySelector('main');
 
 // Function to toggle fonts list
 const toggleFontsList = () => {
@@ -88,7 +89,18 @@ const initiateSearch = () => {
     // Get the required  elements
     const searchBox = document.querySelector("#search-box");
 
-    searchBox.value !== '' ? fetchData(searchBox.value) : displayError('Opps🙂 You forgot to enter a word to search. Try Again!');
+    if (searchBox.value.trim() !== '') {
+        fetchData(searchBox.value);
+        loader.style.display = "inline-block";
+    } else {
+        displayError('Oops🙂 You forgot to enter a word to search. Try Again!');
+        main.innerHTML = `
+            <div class="welcome-page">
+                <h1>Welcome to the Dictionary App!</h1>
+            </div>`;
+        loader.style.display = "none";
+    }
+
 };
 
 // Function to fetch data from dictionary API
@@ -97,10 +109,10 @@ const fetchData = async (searchedWord) => {
         // Fetch data from the API
         const response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${searchedWord}`);
         const data = await response.json();
-
         updateData(data);
+        loader.style.display = "none";
     } catch (error) {
-        displayError('Error while searching for the word. Reckeck the word! (spelling etc.)')
+        displayError('Error while searching the word. Reckeck the word! (spelling etc.)')
     }
 };
 
@@ -108,8 +120,6 @@ const fetchData = async (searchedWord) => {
 const updateData = (data) => {
     // Extract relevant information from the API response
     const [{ word, phonetic, meanings, sourceUrls }] = data;
-    const [phonetics] = data;
-    const main = document.querySelector('main');
 
     main.innerHTML = '';
     let section = document.createElement('section');
@@ -162,23 +172,30 @@ const updateData = (data) => {
     main.append(footer);
 
 
-    // playAudio(); //Fix Me:
+    playAudio(data[0].phonetics.find(phonetic => phonetic.audio));
 };
 
 // Function to the desired audio when the play button is clicked
 const playAudio = (audio) => {
     const audioBtn = document.querySelector('#audio-btn');
-    audioBtn.addEventListener('click', () => new Audio(audio).play());
+    audioBtn.addEventListener('click', () => new Audio(audio.audio).play());
 };
 
 // Function to handle errors
 const displayError = (message) => {
-    alert(message);
+    const errorBox = document.querySelector('#error-box');
+
+    errorBox.textContent = message;
+    errorBox.style.top = "50%";
+    setTimeout(() => {
+        errorBox.style.top = "-100%";
+    }, 3000);
+    loader.style.display = "none";
 };
 
 // Call the functions to initialize the features
 toggleFontsList();
 toggleTheme();
 enhanceSearchBarInteraction();
-// document.querySelector("#search-btn").addEventListener('click', initiateSearch); //Fix Me:
+document.querySelector("#search-btn").addEventListener('click', initiateSearch);
 document.addEventListener('keydown', (event) => (event.key === 'Enter') ? initiateSearch() : null);

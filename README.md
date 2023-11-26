@@ -26,8 +26,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Dictionary App](https://your-solution-url.com)
-- Live Site URL: [Dictionary App](https://your-live-site-url.com)
+- Solution URL: [Dictionary App](https://github.com/Developer-Ashutosh/Dictionary-App)
+- Live Site URL: [Dictionary App](https://developer-ashutosh.github.io/Dictionary-App/)
 
 ## My process
 
