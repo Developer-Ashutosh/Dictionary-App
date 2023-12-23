@@ -149,16 +149,18 @@ const updateData = (data) => {
                 </div >
             </ul >
         </article >
-    <article>
-        <div class="title">${synonyms != '' ? 'Synonyms' : ''}</div>
-        <div class="synonyms">
-            ${synonyms.map(e => `<span class="synonym">${e}</span>`).join('')}
-        </div>
-        <div class="title">${antonyms != '' ? 'Antonyms' : ''}</div>
-        <div class="antonyms">
-            ${antonyms.map(e => `<span class="antonyms">${e}</span>`).join('')}
-        </div>
-    </article>`;
+        <article>
+            <div class="title">${synonyms != '' ? 'Synonyms' : ''}</div>
+            <div class="synonyms">
+                ${synonyms.map(e => `<span class="synonym">${e}</span>`).join('')}
+            </div>
+            </article>
+            <article>
+            <div class="title">${antonyms != '' ? 'Antonyms' : ''}</div>
+            <div class="antonyms">
+                ${antonyms.map(e => `<span class="antonym">${e}</span>`).join('')}
+            </div>
+        </article>`;
         main.append(fieldset);
     });
 
