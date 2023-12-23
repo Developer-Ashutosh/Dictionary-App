@@ -152,13 +152,13 @@ const updateData = (data) => {
         <article>
             <div class="title">${synonyms != '' ? 'Synonyms' : ''}</div>
             <div class="synonyms">
-                ${synonyms.map(e => `<span class="synonym">${e}</span>`).join('')}
+                ${synonyms.map((e, index) => `<span class="synonym">${e}${index === synonyms.length - 1 ? '' : ';'}</span>`).join('')}
             </div>
-            </article>
-            <article>
+        </article>
+        <article>
             <div class="title">${antonyms != '' ? 'Antonyms' : ''}</div>
             <div class="antonyms">
-                ${antonyms.map(e => `<span class="antonym">${e}</span>`).join('')}
+                ${antonyms.map((e, index) => `<span class="antonym">${e}${index === antonyms.length - 1 ? '' : ';'}</span>`).join('')}
             </div>
         </article>`;
         main.append(fieldset);

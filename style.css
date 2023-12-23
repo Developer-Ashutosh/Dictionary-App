@@ -199,7 +199,7 @@ nav {
 }
 
 .theme-bar {
-    height: 1.2rem;
+    height: 1.3rem;
     width: 2.5rem;
     border-radius: 1rem;
     background-color: var(--Secondary-Text-Color);
@@ -329,7 +329,6 @@ main {
 fieldset {
     border: 0;
     border-top: 1px solid var(--Divider-Shade);
-    /* margin-top: 1.5rem; */
     padding-top: 1.5rem;
 }
 
@@ -383,7 +382,7 @@ article:has(.synonyms, .antonyms) {
 article :is(.synonyms, .antonyms) {
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: .5rem;
 }
 
 article :is(.synonym, .antonym) {
