@@ -154,14 +154,14 @@ const updateData = (data) => {
                 </div >
             </ul >
         </article >
-        <article>
-            <div class="title">${synonyms != '' ? 'Synonyms' : ''}</div>
+        <article style="display:${synonyms.length > 0 ? 'flex' : 'none'}">
+            <div class="title">${synonyms != '' ? 'Synonyms:' : ''}</div>
             <div class="synonyms">
                 ${synonyms.map((e, index) => `<span class="synonym">${e}${index === synonyms.length - 1 ? '' : ';'}</span>`).join('')}
             </div>
         </article>
-        <article>
-            <div class="title">${antonyms != '' ? 'Antonyms' : ''}</div>
+        <article style="display:${antonyms.length > 0 ? 'flex' : 'none'}">
+            <div class="title">${antonyms != '' ? 'Antonyms:' : ''}</div>
             <div class="antonyms">
                 ${antonyms.map((e, index) => `<span class="antonym">${e}${index === antonyms.length - 1 ? '' : ';'}</span>`).join('')}
             </div>
@@ -205,4 +205,4 @@ toggleFontsList();
 toggleTheme();
 enhanceSearchBarInteraction();
 document.querySelector("#search-btn").addEventListener('click', initiateSearch);
-document.addEventListener('keydown', (event) => (event.key === 'Enter') ? initiateSearch() : null);
+document.addEventListener('keydown', (event) => (event.key === 'Enter') && initiateSearch());

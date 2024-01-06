@@ -1,17 +1,17 @@
 /* Font Sources */
 @font-face {
     font-family: "Lora";
-    src: url('./fonts/Lora-VariableFont.ttf') format('truetype');
+    src: url('./fonts/Lora-VariableFont.woff2') format('truetype');
 }
 
 @font-face {
     font-family: "Inter";
-    src: url('./fonts/Inter-VariableFont.ttf') format('truetype');
+    src: url('./fonts/Inter-VariableFont.woff2') format('truetype');
 }
 
 @font-face {
     font-family: "Inconsolata";
-    src: url('./fonts/Inconsolata-VariableFont.ttf') format('truetype');
+    src: url('./fonts/Inconsolata-VariableFont.woff2') format('truetype');
 }
 
 /* Root Variables */
@@ -329,7 +329,8 @@ main {
 fieldset {
     border: 0;
     border-top: 1px solid var(--Divider-Shade);
-    padding-top: 1.5rem;
+    padding-top: 1.2rem;
+    margin-block: 1.5rem;
 }
 
 legend {
@@ -375,14 +376,13 @@ fieldset li::marker {
 
 article:has(.synonyms, .antonyms) {
     margin-top: 1.5rem;
-    display: flex;
-    gap: 2rem;
+    gap: 1.5rem;
 }
 
 article :is(.synonyms, .antonyms) {
     display: flex;
     flex-wrap: wrap;
-    gap: .5rem;
+    gap: .2rem;
 }
 
 article :is(.synonym, .antonym) {
@@ -392,7 +392,7 @@ article :is(.synonym, .antonym) {
 }
 
 footer {
-    margin: 1.5rem auto 0;
+    margin-inline: auto;
     width: 98%;
     color: var(--Secondary-Text-Color);
     font-size: .95rem;
@@ -454,18 +454,10 @@ footer {
 }
 
 @media (width<=425px) {
-    .phonetics {
-        justify-content: space-evenly;
-    }
 
     #audio-btn {
         height: 3.5rem;
         width: 3.5rem;
-    }
-
-    fieldset {
-        margin-top: 1.2rem;
-        padding-top: 1.2rem;
     }
 
     fieldset ul {
